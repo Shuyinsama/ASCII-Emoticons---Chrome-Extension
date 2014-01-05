@@ -158,7 +158,9 @@ $(document).ready(function() {
 
 		// For eventual later API implementation (Twitch, UStream etc)
 
-		// check for twitch domain
+		// get the current tab url so we can do the correct action for multiple websites
+		// for example we could add the emoticon straight to a twitch chat if we want.
+		// this could also be implemented with a user option "allow insert in chat"
 		chrome.tabs.getSelected(null, function(tab) {
 			tablink = tab.url;
 		});
@@ -168,14 +170,7 @@ $(document).ready(function() {
 		$('#emoteTable').on('click', 'tr', function(event) {
 			var asciiSmiley = $(this).find("#asciiToCopy").text();
 			copyAscii(asciiSmiley);
-			
-			if ($('#chat_text_input')) {
-				$('#chat_text_input').val(asciiSmiley);
-			}
 		});
-		/*$('#copy-ascii').click(function() {
-			console.log($(this).find('#asciiToCopy').text());
-		});*/
 	}
 
 	function addAsciiEmotes() {
