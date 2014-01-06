@@ -10,6 +10,7 @@
 		<!-- Scripts -->
 		<script src="js/jquery-2.0.3.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/jquery-filter-tables.js"></script>
 		
 		<!-- Cascading Style Sheets -->
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -19,14 +20,15 @@
 	<body>
 	
 		<nav class="navbar navbar-default" role="navigation">
-			<p id="title">##Filter goes here ##</p>
+			<input type="text" class="f_txt"/>
 		</nav>
 		
 		<section id="emoteData">
-			<table id="emoteTable" class="table table-hover">
+			<table id="emoteTable" class="table table-hover f_tbl">
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Category</th>
                         <th>Text</th>
                         <th>ASCII</th>
                     </tr>

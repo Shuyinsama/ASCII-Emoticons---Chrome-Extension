@@ -3,150 +3,85 @@ $(document).ready(function() {
 	// List of emotes we should be able to load this externally from dropbox for instance
 	var emotes = [
 		{
-			ascii: '(ノಠ益ಠ)ノ彡┻━┻',
-			regex: 'TableFlip'
+			ascii: '(●´∀｀●)',
+			regex: 'Happy',
+			categorie: 'Faces'
 		},
 		{
-			ascii: '┬─┬ノ( º _ ºノ)',
-			regex: 'TableBack'
+			ascii: '(ノಠ益ಠ)ノ',
+			regex: 'Angry',
+			categorie: 'Faces'
 		},
 		{
-			ascii: 'ლ(ಠ益ಠლ)',
-			regex: 'WeirdFace'
+			ascii: '(✿ ♥‿♥)',
+			regex: 'Love',
+			categorie: 'Faces'
 		},
 		{
-			ascii: 'ヽ༼ຈل͜ຈ༽ﾉ',
-			regex: 'Dongers'
+			ascii: '「(°ヘ°)',
+			regex: 'Confused',
+			categorie: 'Faces'
 		},
 		{
-			ascii: '( ͡ °͜ʖ ͡° )',
-			regex: 'SmoothFace'
+			ascii: '¯\_(ツ)_/¯',
+			regex: 'Whatever',
+			categorie: 'Faces'
 		},
 		{
-			ascii: '¯_(ツ)_/¯',
-			regex: 'Something'
+			ascii: '(ﾉﾟ0ﾟ)ﾉ~',
+			regex: 'Surprised',
+			categorie: 'Faces'
 		},
 		{
-			ascii: '┬─┬ノ( º _ ºノ)',
-			regex: 'TableBack'
+			ascii: '（￣へ￣）',
+			regex: 'Smug',
+			categorie: 'Faces'
 		},
 		{
-			ascii: 'ლ(ಠ益ಠლ)',
-			regex: 'WeirdFace'
+			ascii: '((*゜Д゜)ゞ”',
+			regex: 'Worried',
+			categorie: 'Faces'
 		},
 		{
-			ascii: 'ヽ༼ຈل͜ຈ༽ﾉ',
-			regex: 'Dongers'
+			ascii: 'ψ(*｀ー´)ψ',
+			regex: 'Evil',
+			categorie: 'Faces'
 		},
 		{
-			ascii: '( ͡ °͜ʖ ͡° )',
-			regex: 'SmoothFace'
+			ascii: '(´＿｀。)',
+			regex: 'Sad',
+			categorie: 'Faces'
 		},
 		{
-			ascii: '¯_(ツ)_/¯',
-			regex: 'Something'
+			ascii: 'ヽ(ﾟДﾟ)ﾉ',
+			regex: 'Scarred',
+			categorie: 'Faces'
 		},
 		{
-			ascii: '┬─┬ノ( º _ ºノ)',
-			regex: 'TableBack'
+			ascii: '(*￣(ｴ)￣*)',
+			regex: 'Bear',
+			categorie: 'Animals'
 		},
 		{
-			ascii: 'ლ(ಠ益ಠლ)',
-			regex: 'WeirdFace'
+			ascii: '(^・ω・^ )',
+			regex: 'Cat',
+			categorie: 'Animals'
 		},
 		{
-			ascii: 'ヽ༼ຈل͜ຈ༽ﾉ',
-			regex: 'Dongers'
+			ascii: '@(*^ｪ^)@',
+			regex: 'Monkey',
+			categorie: 'Animals'
 		},
 		{
-			ascii: '( ͡ °͜ʖ ͡° )',
-			regex: 'SmoothFace'
+			ascii: 'ლ(́◉◞౪◟◉‵ლ)',
+			regex: 'SuperHappy',
+			categorie: 'Faces'
 		},
 		{
-			ascii: '¯_(ツ)_/¯',
-			regex: 'Something'
-		},
-		{
-			ascii: '┬─┬ノ( º _ ºノ)',
-			regex: 'TableBack'
-		},
-		{
-			ascii: 'ლ(ಠ益ಠლ)',
-			regex: 'WeirdFace'
-		},
-		{
-			ascii: 'ヽ༼ຈل͜ຈ༽ﾉ',
-			regex: 'Dongers'
-		},
-		{
-			ascii: '( ͡ °͜ʖ ͡° )',
-			regex: 'SmoothFace'
-		},
-		{
-			ascii: '¯_(ツ)_/¯',
-			regex: 'Something'
-		},
-		{
-			ascii: '┬─┬ノ( º _ ºノ)',
-			regex: 'TableBack'
-		},
-		{
-			ascii: 'ლ(ಠ益ಠლ)',
-			regex: 'WeirdFace'
-		},
-		{
-			ascii: 'ヽ༼ຈل͜ຈ༽ﾉ',
-			regex: 'Dongers'
-		},
-		{
-			ascii: '( ͡ °͜ʖ ͡° )',
-			regex: 'SmoothFace'
-		},
-		{
-			ascii: '¯_(ツ)_/¯',
-			regex: 'Something'
-		},
-		{
-			ascii: '┬─┬ノ( º _ ºノ)',
-			regex: 'TableBack'
-		},
-		{
-			ascii: 'ლ(ಠ益ಠლ)',
-			regex: 'WeirdFace'
-		},
-		{
-			ascii: 'ヽ༼ຈل͜ຈ༽ﾉ',
-			regex: 'Dongers'
-		},
-		{
-			ascii: '( ͡ °͜ʖ ͡° )',
-			regex: 'SmoothFace'
-		},
-		{
-			ascii: '¯_(ツ)_/¯',
-			regex: 'Something'
-		},
-		{
-			ascii: '┬─┬ノ( º _ ºノ)',
-			regex: 'TableBack'
-		},
-		{
-			ascii: 'ლ(ಠ益ಠლ)',
-			regex: 'WeirdFace'
-		},
-		{
-			ascii: 'ヽ༼ຈل͜ຈ༽ﾉ',
-			regex: 'Dongers'
-		},
-		{
-			ascii: '( ͡ °͜ʖ ͡° )',
-			regex: 'SmoothFace'
-		},
-		{
-			ascii: '¯_(ツ)_/¯',
-			regex: 'Something'
+			ascii: 'ヽ༼ຈل͜ຈ༽ﾉ raise your dongers ヽ༼ຈل͜ຈ༽ﾉ',
+			regex: 'RaiseDongers',
+			categorie: 'memes'
 		}
-
 	]
 
 	// Plugin wide variables
@@ -159,6 +94,13 @@ $(document).ready(function() {
 
 		addAsciiEmotes();
 		bindEventListeners();
+
+		// Filtering for the table
+        $(".f_txt").table_filter({
+            'table':'.f_tbl',
+            'filter_inverse':false,
+            'enable_space':true
+        });
 
 		// For eventual later API implementation (Twitch, UStream etc)
 
@@ -188,7 +130,8 @@ $(document).ready(function() {
         container.html('');
         for (i in emotes) {
        		var elemAscii = emotes[i];
-        	container.append('<tr id="copy-ascii"><td>'+i+'</td><td>'+elemAscii.regex+'</td><td id="asciiToCopy">'+elemAscii.ascii+'</td></tr>');
+       		var index = parseInt(i)+1;
+        	container.append('<tr id="copy-ascii"><td>'+index+'</td><td>'+elemAscii.categorie+'</td><td>'+elemAscii.regex+'</td><td id="asciiToCopy">'+elemAscii.ascii+'</td></tr>');
         }
 	}
 
