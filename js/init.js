@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+	// List of emotes we should be able to load this externally from dropbox for instance
 	var emotes = [
 		{
 			ascii: '(ノಠ益ಠ)ノ彡┻━┻',
@@ -147,10 +148,13 @@ $(document).ready(function() {
 		}
 
 	]
+
+	// Plugin wide variables
 	var elemEmoteList = $("#emoteData");
 	var tablink;
 
 
+	// Init function this will run first here we can make sure we have the correct variables to start
 	function init() {
 
 		addAsciiEmotes();
@@ -166,6 +170,7 @@ $(document).ready(function() {
 		});
 	}
 
+	// Binding event listeners to the Table Rows to make them clickable
 	function bindEventListeners() {
 		$('#emoteTable').on('click', 'tr', function(event) {
 			var asciiSmiley = $(this).find("#asciiToCopy").text();
@@ -173,6 +178,8 @@ $(document).ready(function() {
 		});
 	}
 
+
+	// Populates the list with all the emoticons from the array
 	function addAsciiEmotes() {
 		var container;
 
@@ -180,16 +187,22 @@ $(document).ready(function() {
         container = elemEmoteList.find('.emoteList');
         container.html('');
         for (i in emotes) {
-        	var elemAscii = emotes[i];
+       		var elemAscii = emotes[i];
         	container.append('<tr id="copy-ascii"><td>'+i+'</td><td>'+elemAscii.regex+'</td><td id="asciiToCopy">'+elemAscii.ascii+'</td></tr>');
         }
 	}
 
-	/* COPY FUNCTIONS */
-
+	// Copy function. basically what this does is bypass the Copy to Clipboard security in javascript.
+	// Chrome extension are allowed to access the ClipboardData if the permissions are set in the manifest.
+	// this function gets the selectes emoticon and puts it in a generated <textarea>, then it selects that textarea text
+	// and copies the content. It is then removed from the page. This goes so fast you won't even see the <textarea>
 	function copyAscii(str) {
-		var sandbox = $('#sandbox').val(str).select();
+		var sandbox = $('<textarea/>');
+		sandbox.text(str);
+		$("body").append(sandbox);
+		sandbox.select();
 		document.execCommand('copy');
+		sandbox.remove();
 	}
 
 	init();

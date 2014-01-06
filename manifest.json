@@ -5,7 +5,9 @@
 	"version": "1.0",
 	"permissions": [
 		"storage",
-		"tabs"
+		"tabs", "http://www.twitch.tv/*",
+		"clipboardWrite",
+        "clipboardRead"
 	],
 	"icons": { 
 		"16": "img/icon16.png",
