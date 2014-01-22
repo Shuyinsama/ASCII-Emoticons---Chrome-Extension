@@ -81,6 +81,11 @@ $(document).ready(function() {
 			ascii: 'ヽ༼ຈل͜ຈ༽ﾉ raise your dongers ヽ༼ຈل͜ຈ༽ﾉ',
 			regex: 'RaiseDongers',
 			categorie: 'memes'
+		},
+		{
+			ascii: '└[∵┌]└[ ∵ ]┘[┐∵]┘',
+			regex: 'DanceDance',
+			categorie: 'Faces'
 		}
 	]
 
@@ -151,7 +156,7 @@ $(document).ready(function() {
        		var elemAscii = emotes[i];
        		// start the numbering at 1 instead of 0 :)
        		var index = parseInt(i)+1;
-        	container.append('<tr id="copy-ascii"><td>'+index+'</td><td>'+elemAscii.categorie+'</td><td>'+elemAscii.regex+'</td><td id="asciiToCopy">'+elemAscii.ascii+'</td></tr>');
+        	container.append('<tr id="copy-ascii"><td>'+index+'</td><td class="cat-bar"><span class="'+elemAscii.categorie.toLowerCase()+'-cat">'+elemAscii.categorie+'</span></td><td>'+elemAscii.regex+'</td><td id="asciiToCopy">'+elemAscii.ascii+'</td></tr>');
         }
 	}
 

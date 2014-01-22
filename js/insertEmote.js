@@ -8,7 +8,7 @@
 chrome.runtime.onMessage.addListener(
 function(request, sender, sendResponse) {
 	if (request.emote) {
-		var emoteSpace = ' '+request.emote;
+		var emoteSpace = ' '+request.emote+' ';
 		document.getElementById("chat_text_input").value += emoteSpace;
 	}
 });
