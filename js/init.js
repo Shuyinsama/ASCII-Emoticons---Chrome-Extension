@@ -86,7 +86,8 @@ $(document).ready(function() {
 
 	// Plugin wide variables
 	var elemEmoteList = $("#emoteData");
-	var tablink;
+	var tablink,
+		copiedText;
 
 
 	// Init function this will run first here we can make sure we have the correct variables to start
@@ -116,23 +117,56 @@ $(document).ready(function() {
 	function bindEventListeners() {
 		$('#emoteTable').on('click', 'tr', function(event) {
 			var asciiSmiley = $(this).find("#asciiToCopy").text();
-			copyAscii(asciiSmiley);
+			/* Other Domain support coming soon */
+			/* this checks if the current tab is twitch */
+			if (tablink.indexOf("twitch") >= 0) {
+				// if so then alert the user that the ascii
+				// is pasted into their chat text area
+				copiedText = "Pasted into twitch chat";
+				// then actualy send the ascii to twitch
+				// using injected content scripts
+				sendToTab(asciiSmiley);
+			} else {
+				// if just any regular page we just copy the ascii
+				// and yet again notify the user
+				copiedText = "Your emote was copied to the clipboard";
+				// and actualy copy the ascii to clipboard
+				copyAscii(asciiSmiley);
+			}
+			// Start the animation for the alert message
+			fadeInCopied(copiedText);
 		});
 	}
 
-
-	// Populates the list with all the emoticons from the array
+	// Populates the list with all the emoticons from the array/JSON
 	function addAsciiEmotes() {
 		var container;
 
 		// Add all emotes.
         container = elemEmoteList.find('.emoteList');
+        // Empty the container first as precaution
         container.html('');
+        // loop through the array/json
         for (i in emotes) {
        		var elemAscii = emotes[i];
+       		// start the numbering at 1 instead of 0 :)
        		var index = parseInt(i)+1;
         	container.append('<tr id="copy-ascii"><td>'+index+'</td><td>'+elemAscii.categorie+'</td><td>'+elemAscii.regex+'</td><td id="asciiToCopy">'+elemAscii.ascii+'</td></tr>');
         }
+	}
+
+	// Animation function for the alert box
+	function fadeInCopied(txt) {
+		$( "#copied" ).html(txt).fadeIn(500).delay(1000).fadeOut(500);
+	}
+
+	// This function sends the ascii to twitch
+	function sendToTab(ascii) {
+		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+			chrome.tabs.sendMessage(tabs[0].id, {emote: ascii}, function(response) {
+				
+			});
+		});
 	}
 
 	// Copy function. basically what this does is bypass the Copy to Clipboard security in javascript.
@@ -148,5 +182,6 @@ $(document).ready(function() {
 		sandbox.remove();
 	}
 
+	// 3... 2... 1... LAUNCHE! now ヽ༼ຈل͜ຈ༽ﾉ raise your dongers ヽ༼ຈل͜ຈ༽ﾉ
 	init();
 });

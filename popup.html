@@ -3,7 +3,7 @@
 	<head>
 	    <meta charset="utf-8">
 		<meta name="description" content="ASCII">
-		<meta name="author" content="">
+		<meta name="author" content="SpeedRunTools">
 		
 		<title>ASCII Emoticons</title>
 		
@@ -18,27 +18,35 @@
 	</head>
 	
 	<body>
-	
+		<!-- Search/filter -->
 		<nav class="navbar navbar-default" role="navigation">
-			<input type="text" class="f_txt"/>
+			<input type="text" class="f_txt" placeholder="Search..."/>
 		</nav>
+
+		<!-- Copied ASCII Alert -->
+		<alert id="copied" style="display: none;"></alert>
 		
+		<!-- This is the main section where the Emotes will be inserted -->
 		<section id="emoteData">
 			<table id="emoteTable" class="table table-hover f_tbl">
                 <thead>
-                    <tr>
+                    <tr class="table-header">
                         <th>#</th>
                         <th>Category</th>
                         <th>Text</th>
                         <th>ASCII</th>
                     </tr>
                 </thead>
+                <!-- The actual data will be inserted here -->
                 <tbody class="emoteList">
                     
                 </tbody>
         	</table>
 		</section>
+		<!-- Sandbox is used to copy the selected emote into clipboard -->
+		<!-- this uses the Chrome Permissions and bypasses flash -->
 		<div class="sandbox"></div>
+		<!-- main function script -->
 		<script type="text/javascript" src="js/init.js"></script>
 	</body>
 </html>

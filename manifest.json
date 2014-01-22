@@ -9,6 +9,13 @@
 		"clipboardWrite",
         "clipboardRead"
 	],
+	"content_scripts": [
+    	{
+      		"matches": ["http://www.twitch.tv/*"],
+      		"js": ["js/insertEmote.js"],
+      		"run_at": "document_end"
+    	}
+  	],
 	"icons": { 
 		"16": "img/icon16.png",
 		"48": "img/icon48.png",

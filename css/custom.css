@@ -12,9 +12,39 @@ body, section {			/* Change width and height to own preferences */
 }
 
 /* Basic style tweaks */
-section { padding: 5px;}
+#emoteData { 
+	padding: 5px;
+	background: #4b4040;
+	color: #fff;
+	border: none;
+}
+#emoteData tr:hover {
+	color:#000;
+}
+.table-header { color: #fff !important;}
 .navbar { margin-bottom: 2px; }
 #copy-ascii {cursor: pointer;}
+
+/* search */
+.f_txt {
+	width: 100%;
+	border: none;
+}
+
+/* Copy Alert */
+#copied {
+	position: absolute;
+	background: rgba(0,0,0,0.7);
+	color: #fff;
+	width: 480px;
+	height: 30px;
+	padding: 4px;
+	margin-top: 10px;
+	margin-left: 5px;
+	text-align: center;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
 
 
 /* Scroll Bar */
