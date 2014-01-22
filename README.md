@@ -9,14 +9,14 @@ websites like Twitch.
 
 Screenshots
 
-![alt text](http://i.imgur.com/rviufH5.png "Work in Progress")
+![alt text](http://i.imgur.com/xAUDOR4.png "Work in Progress")
 
 ***
 
 Milestone 1.0
 
-- [ ] A new UI
+- [X] A new UI
 - [ ] A first comprehensive Emoticons list
-- [ ] Setup the base for website dependancies
-- [ ] Feedback when a emoticon is copied
-- [ ] a new icon
+- [X] Setup the base for website dependancies
+- [X] Feedback when a emoticon is copied
+- [X] a new icon
