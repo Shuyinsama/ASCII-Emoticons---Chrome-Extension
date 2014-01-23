@@ -11,6 +11,8 @@ Screenshots
 
 ![alt text](http://i.imgur.com/xAUDOR4.png "Work in Progress")
 
+![alt text](http://i.imgur.com/2EdlrdD.gif "short preview")
+
 ***
 
 Milestone 1.0
