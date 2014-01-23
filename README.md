@@ -18,7 +18,7 @@ Screenshots
 Milestone 1.0
 
 - [X] A new UI
-- [ ] A first comprehensive Emoticons list
+- [X] A first comprehensive Emoticons list
 - [X] Setup the base for website dependancies
 - [X] Feedback when a emoticon is copied
 - [X] a new icon
