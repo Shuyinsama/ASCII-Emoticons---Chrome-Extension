@@ -80,7 +80,7 @@ $(document).ready(function() {
 					var data = response[i];
 					// start at 1 instead of 0
 					var index = parseInt(i)+1;
-					container.append('<tr id="copy-ascii"><td>'+index+'</td><td class="cat-bar"><span class="'+data.category.toLowerCase()+'-cat">'+data.category+'</span></td><td>'+data.regex+'</td><td id="asciiToCopy">'+data.ascii+'</td></tr>');
+					container.append('<tr id="copy-ascii"><td>'+index+'</td><td class="cat-bar"><span class="'+data.category.toLowerCase()+'-cat">'+data.category.toLowerCase()+'</span></td><td>'+data.regex+'</td><td id="asciiToCopy">'+data.ascii+'</td></tr>');
 				}
 			}
 		}

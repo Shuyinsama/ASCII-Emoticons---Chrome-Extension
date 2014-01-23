@@ -82,7 +82,7 @@ input { outline: none; }
 
 #emoteData tr {
 	border:none;
-
+	font-size: 13px;
 	background: rgb(255,255,255); /* Old browsers */
 	background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(221,221,221,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(221,221,221,1))); /* Chrome,Safari4+ */
@@ -140,6 +140,7 @@ input { outline: none; }
 .twitch-cat { font-size: 13px; background: #c1a6ed; color: #fff; padding: 2px 5px; border-radius: 3px; -webkit-border-radius: 3px; line-height: 115%; }
 .party-cat { font-size: 13px; background: #b13030; color: #fff; padding: 2px 5px; border-radius: 3px; -webkit-border-radius: 3px; line-height: 115%; }
 .fun-cat { font-size: 13px; background: #d89bc9; color: #fff; padding: 2px 5px; border-radius: 3px; -webkit-border-radius: 3px; line-height: 115%; }
+.anime-cat { font-size: 13px; background: #DFD983; color: #fff; padding: 2px 5px; border-radius: 3px; -webkit-border-radius: 3px; line-height: 115%; }
 
 /* Scroll Bar */
 ::-webkit-scrollbar { width: 6px; }
