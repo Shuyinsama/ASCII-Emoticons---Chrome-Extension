@@ -137,7 +137,9 @@ input { outline: none; }
 .faces-cat { font-size: 13px; background: #dcac67; color: #fff; padding: 2px 5px; border-radius: 3px; -webkit-border-radius: 3px; line-height: 115%;}
 .animals-cat { font-size: 13px; background: #8ebb75; color: #fff; padding: 2px 5px; border-radius: 3px; -webkit-border-radius: 3px; line-height: 115%; }
 .memes-cat { font-size: 13px; background: #74a6ca; color: #fff; padding: 2px 5px; border-radius: 3px; -webkit-border-radius: 3px; line-height: 115% }
- 
+.twitch-cat { font-size: 13px; background: #c1a6ed; color: #fff; padding: 2px 5px; border-radius: 3px; -webkit-border-radius: 3px; line-height: 115%; }
+.party-cat { font-size: 13px; background: #b13030; color: #fff; padding: 2px 5px; border-radius: 3px; -webkit-border-radius: 3px; line-height: 115%; }
+.fun-cat { font-size: 13px; background: #d89bc9; color: #fff; padding: 2px 5px; border-radius: 3px; -webkit-border-radius: 3px; line-height: 115%; }
 
 /* Scroll Bar */
 ::-webkit-scrollbar { width: 6px; }

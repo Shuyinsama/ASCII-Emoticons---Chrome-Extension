@@ -1,93 +1,9 @@
 $(document).ready(function() {
 
-	// List of emotes we should be able to load this externally from dropbox for instance
-	var emotes = [
-		{
-			ascii: '(●´∀｀●)',
-			regex: 'Happy',
-			categorie: 'Faces'
-		},
-		{
-			ascii: '(ノಠ益ಠ)ノ',
-			regex: 'Angry',
-			categorie: 'Faces'
-		},
-		{
-			ascii: '(✿ ♥‿♥)',
-			regex: 'Love',
-			categorie: 'Faces'
-		},
-		{
-			ascii: '「(°ヘ°)',
-			regex: 'Confused',
-			categorie: 'Faces'
-		},
-		{
-			ascii: '¯\_(ツ)_/¯',
-			regex: 'Whatever',
-			categorie: 'Faces'
-		},
-		{
-			ascii: '(ﾉﾟ0ﾟ)ﾉ~',
-			regex: 'Surprised',
-			categorie: 'Faces'
-		},
-		{
-			ascii: '（￣へ￣）',
-			regex: 'Smug',
-			categorie: 'Faces'
-		},
-		{
-			ascii: '((*゜Д゜)ゞ”',
-			regex: 'Worried',
-			categorie: 'Faces'
-		},
-		{
-			ascii: 'ψ(*｀ー´)ψ',
-			regex: 'Evil',
-			categorie: 'Faces'
-		},
-		{
-			ascii: '(´＿｀。)',
-			regex: 'Sad',
-			categorie: 'Faces'
-		},
-		{
-			ascii: 'ヽ(ﾟДﾟ)ﾉ',
-			regex: 'Scarred',
-			categorie: 'Faces'
-		},
-		{
-			ascii: '(*￣(ｴ)￣*)',
-			regex: 'Bear',
-			categorie: 'Animals'
-		},
-		{
-			ascii: '(^・ω・^ )',
-			regex: 'Cat',
-			categorie: 'Animals'
-		},
-		{
-			ascii: '@(*^ｪ^)@',
-			regex: 'Monkey',
-			categorie: 'Animals'
-		},
-		{
-			ascii: 'ლ(́◉◞౪◟◉‵ლ)',
-			regex: 'SuperHappy',
-			categorie: 'Faces'
-		},
-		{
-			ascii: 'ヽ༼ຈل͜ຈ༽ﾉ raise your dongers ヽ༼ຈل͜ຈ༽ﾉ',
-			regex: 'RaiseDongers',
-			categorie: 'memes'
-		},
-		{
-			ascii: '└[∵┌]└[ ∵ ]┘[┐∵]┘',
-			regex: 'DanceDance',
-			categorie: 'Faces'
-		}
-	]
+	// List of default emotes supplied by SRT
+	var emotes = [];
+	// Custom Emote list defined in the options page (coming soon)
+	var customEmotes = [];
 
 	// Plugin wide variables
 	var elemEmoteList = $("#emoteData");
@@ -97,8 +13,10 @@ $(document).ready(function() {
 
 	// Init function this will run first here we can make sure we have the correct variables to start
 	function init() {
-
-		addAsciiEmotes();
+		
+		// Get and insert the default list
+		setupDefaultEmotes();
+		// Bind event Listeners like click...
 		bindEventListeners();
 
 		// Filtering for the table
@@ -143,21 +61,35 @@ $(document).ready(function() {
 		});
 	}
 
-	// Populates the list with all the emoticons from the array/JSON
-	function addAsciiEmotes() {
-		var container;
+	// Populate with the defaul emotes
+	function setupDefaultEmotes() {
+		// Google Dev correct XHR Request for extensions
+		var xhr = new XMLHttpRequest();
+		// Load the external json
+		xhr.open("GET", "https://dl.dropboxusercontent.com/s/rv3y76yrgippb95/emoticons.json", true);
+		xhr.onreadystatechange = function() {
+			if(xhr.readyState == 4) {
+				// parse the json file
+				var response = JSON.parse(xhr.responseText);
+				// find the container where emotes are inserted
+				container = elemEmoteList.find('.emoteList');
+				// as a precaution empty the container
+				container.html('');
+				// loop through the json and insert the data
+				for (i in response) {
+					var data = response[i];
+					// start at 1 instead of 0
+					var index = parseInt(i)+1;
+					container.append('<tr id="copy-ascii"><td>'+index+'</td><td class="cat-bar"><span class="'+data.category.toLowerCase()+'-cat">'+data.category+'</span></td><td>'+data.regex+'</td><td id="asciiToCopy">'+data.ascii+'</td></tr>');
+				}
+			}
+		}
+		xhr.send();
+	}
 
-		// Add all emotes.
-        container = elemEmoteList.find('.emoteList');
-        // Empty the container first as precaution
-        container.html('');
-        // loop through the array/json
-        for (i in emotes) {
-       		var elemAscii = emotes[i];
-       		// start the numbering at 1 instead of 0 :)
-       		var index = parseInt(i)+1;
-        	container.append('<tr id="copy-ascii"><td>'+index+'</td><td class="cat-bar"><span class="'+elemAscii.categorie.toLowerCase()+'-cat">'+elemAscii.categorie+'</span></td><td>'+elemAscii.regex+'</td><td id="asciiToCopy">'+elemAscii.ascii+'</td></tr>');
-        }
+	// Populates the list with all the emoticons from the array/JSON
+	function addAsciiEmotes(emotes) {
+		// Custom Emote list 
 	}
 
 	// Animation function for the alert box
@@ -166,10 +98,11 @@ $(document).ready(function() {
 	}
 
 	// This function sends the ascii to twitch
+	// Need to setup a conditional format for Twitch or UStream
 	function sendToTab(ascii) {
 		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 			chrome.tabs.sendMessage(tabs[0].id, {emote: ascii}, function(response) {
-				
+				// you can also listen to a response given by the injected script if we want
 			});
 		});
 	}
@@ -187,6 +120,6 @@ $(document).ready(function() {
 		sandbox.remove();
 	}
 
-	// 3... 2... 1... LAUNCHE! now ヽ༼ຈل͜ຈ༽ﾉ raise your dongers ヽ༼ຈل͜ຈ༽ﾉ
+	// 3... 2... 1... LAUNCH! now ヽ༼ຈل͜ຈ༽ﾉ raise your dongers ヽ༼ຈل͜ຈ༽ﾉ
 	init();
 });
