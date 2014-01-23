@@ -6,7 +6,7 @@
 	"permissions": [
 		"storage",
 		"tabs", "http://www.twitch.tv/*",
-		"http://*.dropboxusercontent.com/*",
+		"https://*.dropboxusercontent.com/*",
 		"clipboardWrite",
         "clipboardRead"
 	],
@@ -30,7 +30,7 @@
 		"default_popup": "popup.html"
 	},
 	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
-	"options_page": "options/options.html",	
+	"options_page" : "fancy-settings/index.html",	
 	"web_accessible_resources": [
 		"img/icon128.png"
 	]

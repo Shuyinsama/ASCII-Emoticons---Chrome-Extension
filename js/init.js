@@ -88,8 +88,9 @@ $(document).ready(function() {
 	}
 
 	// Populates the list with all the emoticons from the array/JSON
-	function addAsciiEmotes(emotes) {
-		// Custom Emote list 
+	function addCustomAsciiEmotes(emotes) {
+		// Custom Emote list
+		container.append('<tr id="copy-ascii"><td></td><td class="cat-bar"><span class="custom-cat"></span></td><td></td><td id="asciiToCopy"></td></tr>');
 	}
 
 	// Animation function for the alert box
